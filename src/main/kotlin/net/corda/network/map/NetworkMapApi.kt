@@ -97,7 +97,7 @@ class NetworkMapApi(
             }
         }
         val networkParams = NetworkParameters(
-            minimumPlatformVersion = 1,
+            minimumPlatformVersion = 4,
             notaries = notaryInfoLoader.load(),
             maxMessageSize = 10485760 * 10,
             maxTransactionSize = 10485760 * 5,
