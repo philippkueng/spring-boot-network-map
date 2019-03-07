@@ -33,3 +33,15 @@ docker run -it -v corda/samples/bank-of-corda-demo/build/nodes/BankOfCorda/corda
 ```
 
 will expose the network map on port 8080, whilst the notary will be exposed on port 10200 and advertised as `stefano-corda.azure.io`
+
+------
+
+# Build docker image and deploy to the gitlab registry
+
+```
+docker login -u username registry.sixdx.com (then use a personal access token as the password)
+
+./gradlew dockerPrepare && ./gradlew docker
+
+docker push registry.sixdx.com/sdx-devs/spring-boot-network-map:latest
+```
