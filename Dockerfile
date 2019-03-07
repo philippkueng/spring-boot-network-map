@@ -14,7 +14,14 @@ COPY start.sh start.sh
 RUN chmod +x start.sh
 EXPOSE 8080
 EXPOSE 10200
-CMD ["/start.sh"]
+
 COPY app.jar app.jar
 RUN mkdir -p /jars
 VOLUME ["/jars"]
+
+COPY fix_permissions.sh /fix_permissions.sh
+RUN chmod +x /fix_permissions.sh && /fix_permissions.sh /opt/notaries
+
+USER 1001
+
+CMD ["/start.sh"]
